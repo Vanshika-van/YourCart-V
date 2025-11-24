@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // ✅ Load env
-dotenv.config({ path: path.join(__dirname, ".env") });
+dotenv.config
 
 // Verify critical env variables
 const requiredEnvVars = [
