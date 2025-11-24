@@ -1,5 +1,5 @@
 import express from "express";
-import dotenv from "dotenv";
+//import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Load environment variables
-const envResult = dotenv.config({ path: path.join(__dirname, '.env') });
+//const envResult = dotenv.config({ path: path.join(__dirname, '.env') });
 
 if (envResult.error) {
   console.error('⚠️ Error loading .env file:', envResult.error);
