@@ -22,7 +22,7 @@ function Login() {
     setError("");
     try {
       const result = await axios.post(
-        `${serverUrl || "http://localhost:8000"}/api/auth/login`,
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
         { email, password },
         { withCredentials: true }
       );
