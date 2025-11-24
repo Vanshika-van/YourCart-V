@@ -1,0 +1,17 @@
+import express from 'express'
+import { addToCart,getUserCart,UpdateCart } from '../controllers/cartController.js'
+import isAuth from '../middleware/config/isAuth.js'
+
+const cartRoutes = express.Router()
+
+cartRoutes.get('/get',isAuth,getUserCart)
+cartRoutes.post('/add',isAuth,addToCart)
+cartRoutes.post('/update',isAuth,UpdateCart)
+
+
+
+
+
+
+
+export default cartRoutes
