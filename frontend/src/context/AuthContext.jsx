@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
 export const authDataContext = createContext({
-  serverUrl: "http://localhost:8000",
+  serverUrl: "https://yourcart-v-backend.onrender.com",
 });
 
 export const AuthContextProvider = ({ children }) => {
