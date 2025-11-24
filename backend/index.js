@@ -60,7 +60,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-  origin: ["https://yourcart-v-frontend.onrender.com", "http://localhost:5174"],
+  origin: ["https://yourcart-v-frontend.onrender.com", "https://yourcart-v-adminvite.onrender.com"],
   credentials: true,
 }));
 
