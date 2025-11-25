@@ -1,43 +1,28 @@
-import React, { createContext, useState, useEffect,useContext } from 'react';
-import axios from 'axios';
-import { authDataContext } from './AuthContext';
-
+import React, { createContext, useState } from "react";
+import axios from "axios";
+import { authDataContext } from "./AuthContext";
 
 export const adminDataContext = createContext();
-function AdminContext({children}) {
-    let [adminData,setAdminData] = useState(null);
-    let {serverUrl} = useContext(authDataContext);
-let [loading, setLoading] = useState(true);
 
-    
-    const getAdmin = async()=>{
-try{
-      let res = await axios.post(serverUrl+"/api/user/getadmin",{},{withCredentials:true});
+export const AdminContextProvider = ({ children }) => {
+  const [adminData, setAdminData] = useState(null);
+  const { serverUrl } = React.useContext(authDataContext);
 
-      setAdminData(res.data);
-console.log(res.data);}
-catch(error){
-  setAdminData(null);
-  console.log(error);
-} finally{
-  setLoading(false);
-}
+  const getAdmin = async () => {
+    try {
+      const res = await axios.get(serverUrl + "/api/auth/getadmin", {
+        withCredentials: true,
+      });
+      setAdminData(res.data.admin);
+    } catch (err) {
+      setAdminData(null);
+      console.error("Failed to fetch admin:", err);
     }
+  };
 
-    useEffect(()=>{
-      getAdmin();
-    },[])
-    let value={
-      adminData,setAdminData,getAdmin
-
-    }
   return (
-    <div>
-     <adminDataContext.Provider value={{adminData,setAdminData,getAdmin}}>
-        {children}
-      </adminDataContext.Provider> 
-    </div>
-  )
-}
-
-export default AdminContext
+    <adminDataContext.Provider value={{ adminData, setAdminData, getAdmin }}>
+      {children}
+    </adminDataContext.Provider>
+  );
+};
