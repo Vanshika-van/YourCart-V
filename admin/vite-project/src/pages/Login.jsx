@@ -18,16 +18,17 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
       const res = await axios.post(
-        serverUrl + "/api/auth/adminlogin",
+        `${serverUrl}/api/auth/adminlogin`,
         { email, password },
         { withCredentials: true }
       );
 
       toast.success("Admin login successful!");
-      await getAdmin(); // fetch and store admin data
-      navigate("/admin"); // navigate to admin home page
+      await getAdmin(serverUrl); // pass serverUrl here
+      navigate("/admin"); // navigate to admin home
     } catch (err) {
       console.error(err);
       setError("Invalid email or password");
