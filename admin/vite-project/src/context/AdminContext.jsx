@@ -25,3 +25,5 @@ export const AdminContextProvider = ({ children }) => {
     </adminDataContext.Provider>
   );
 };
+
+export default AdminContext;
