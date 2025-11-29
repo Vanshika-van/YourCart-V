@@ -12,7 +12,7 @@ function ShopContext({ children }) {
   const [showSearch, setShowSearch] = useState(false);
   const [cartItem, setCartItem] = useState({});
   const [loading, setLoading] = useState(false);
-  const serverUrl = import.meta.env.VITE_SERVER_URL || "http://localhost:8000";
+  const serverUrl = import.meta.env.VITE_SERVER_URL || "https://yoourcart-v-backend.onrender.com";
   const currency = "₹";
   const delivery_fee = 40;
 
