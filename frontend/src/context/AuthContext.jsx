@@ -1,12 +1,12 @@
 import React, { createContext, useState } from "react";
 
 export const authDataContext = createContext({
-  serverUrl: "https://yourcart-v-backend.onrender.com",
+  serverUrl: "https://yoourcart-v-backend.onrender.com",
 });
 
 export const AuthContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
-    const serverUrl = "http://localhost:8000";
+    const serverUrl = "https://yoourcart-v-backend.onrender.com";
   
   return (
     <authDataContext.Provider value={{ userData, setUserData, serverUrl }}>
