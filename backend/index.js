@@ -62,10 +62,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      "https://yourcart-v-frontend.onrender.com",
-      "https://yourcart-v-frontend.onrender.com/",
-      "https://yourcart-v-adminvite.onrender.com",
-      "https://yourcart-v-adminvite.onrender.com/",
+      "https://yourcart-v-frontend.onrender.com"
     ],
     credentials: true,
   })
